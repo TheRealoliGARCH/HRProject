@@ -20,6 +20,14 @@ The later Infosys Integrated Annual Report 2024-25 reports workforce composition
 
 Infosys is recorded as **Secondary**, not Eligible, because the verified evidence set does not establish group-specific firing counts for a common observation window.
 
+## Wipro evidence
+
+The official Wipro ESG Dashboard FY 2020-21 reproduces FY2018-19 new-hire counts by region, age, and gender. The verified records retain those source-year counts as group-specific hiring evidence.
+
+The Wipro Sustainability Report FY 2018-19 reports voluntary attrition of 17.6% for IT Services excluding BPS. Wipro defines this as voluntary attrition and it is retained as a source-defined turnover concept rather than a firing measure. The same report reports 35.2% overall gender diversity; this is workforce composition, not an employee-flow count. citeturn0search21turn1search23
+
+Wipro is recorded as **Secondary**, not Eligible, because the verified evidence set does not establish group-specific firing counts for a common observation window.
+
 ## Measurement discipline
 
 - Source-reported hire counts are retained as counts.
@@ -32,8 +40,8 @@ Infosys is recorded as **Secondary**, not Eligible, because the verified evidenc
 
 ## Acquisition boundary
 
-PR #8 adds verified organization-level evidence for a second organization. It does not claim that Infosys or the overall 50--100 organization panel has been admitted to the primary analysis panel.
+PR #8 added verified organization-level evidence for a second organization. PR #10 adds a third verified organization-level evidence package for Wipro (IND003). It does not claim that Infosys or the overall 50--100 organization panel has been admitted to the primary analysis panel.
 
-The current organization registry therefore contains two organizations with verified evidence and **Secondary** screening status; the remaining candidate universe remains **Pending** until its source evidence is verified.
+The current organization registry therefore contains three organizations with verified evidence and **Secondary** screening status; the remaining candidate universe remains **Pending** until its source evidence is verified.
 
 Further organizations and periods must be screened using the same rules.
