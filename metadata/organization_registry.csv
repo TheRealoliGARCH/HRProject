@@ -1,6 +1,6 @@
 organization_id,organization_name,country,industry,ownership,public_status,group_dimensions_available,employment_flow_data_available,source_id,eligible_primary_panel,eligibility_notes
-IND001,Tata Consultancy Services,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
-IND002,Infosys,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND001,Tata Consultancy Services,India,Information Technology,Private,Public,Verified,Verified,ORG_PUBLIC,Secondary,"Verified group-specific hiring distribution and workforce/attrition evidence; group-specific firing counts not established."
+IND002,Infosys,India,Information Technology,Private,Public,Verified,Verified,ORG_PUBLIC,Secondary,"Verified group-specific hiring counts and turnover evidence; group-specific firing counts not established."
 IND003,Wipro,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
 IND004,HCLTech,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
 IND005,Tech Mahindra,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
