@@ -1,0 +1,19 @@
+field,layer,type,required,definition,validation
+organization_id,raw,string,yes,Stable organization identifier,nonempty
+country,raw,string,yes,Country of organization,nonempty
+industry,raw,string,yes,Industry classification,nonempty
+year,raw,integer,yes,Observation year,year >= 2018
+group_id,raw,string,yes,Stable group identifier within harmonized taxonomy,nonempty
+group_definition,raw,string,yes,Original/source definition of the group,nonempty
+employment_begin,raw,nonnegative_integer,yes,Employment at beginning of interval,value >= 0
+employment_end,raw,nonnegative_integer,yes,Employment at end of interval,value >= 0
+hires,raw,nonnegative_integer,yes,Employees hired during interval,value >= 0
+firings,raw,nonnegative_integer,conditional,Employees fired during interval,value >= 0 when observed
+quits,raw,nonnegative_integer,no,Voluntary separations,value >= 0 when observed
+layoffs,raw,nonnegative_integer,no,Layoffs,value >= 0 when observed
+other_separations,raw,nonnegative_integer,no,Other separations,value >= 0 when observed
+source_id,raw,string,yes,Unique source registry identifier,nonempty
+measurement_status,raw,categorical,yes,observed reported reconstructed estimated missing,controlled vocabulary
+firing_quality,raw,categorical,yes,Directly reported officially derived reconstructed estimated missing ambiguous,controlled vocabulary
+source_definition,raw,string,yes,Source wording or documented definition,nonempty
+notes,raw,string,no,Data-quality or transformation notes,optional
