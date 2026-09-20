@@ -1,0 +1,7 @@
+source_id,provider,country,source_name,source_type,role_in_project,organization_level,notes
+IND_LABSTAT,Labour Bureau,India,Indian Labour Statistics,official statistics,benchmark,aggregate,Use for Indian labour-market context and historical benchmarks
+IND_QES,Labour Bureau,India,Quarterly Employment Survey,official survey,benchmark,establishment,Use for employment dynamics and sectoral benchmarks
+IND_ASI,Labour Bureau,India,Annual Survey of Industries,official survey,benchmark,establishment/industry,Use for manufacturing employment and labour-turnover context
+IND_IDCLRA,Labour Bureau,India,Industrial Disputes Closures Retrenchments and Lay-offs,administrative statistics,benchmark,aggregate,Use to distinguish retrenchment and layoff flows from generic separations
+US_JOLTS,BLS,United States,Job Openings and Labor Turnover Survey,official survey,benchmark,establishment,Use for hires quits layoffs/discharges and other separations
+ORG_PUBLIC,Multiple,Multiple,Organization disclosures,company/regulatory,primary,organization,Use only where organization-level definitions and counts are documented
