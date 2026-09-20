@@ -1,1 +1,56 @@
 organization_id,organization_name,country,industry,ownership,public_status,group_dimensions_available,employment_flow_data_available,source_id,eligible_primary_panel,eligibility_notes
+IND001,Tata Consultancy Services,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND002,Infosys,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND003,Wipro,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND004,HCLTech,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND005,Tech Mahindra,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND006,ICICI Bank,India,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND007,HDFC Bank,India,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND008,Axis Bank,India,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND009,State Bank of India,India,Financial Services,Public,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND010,Reliance Industries,India,Conglomerate/Manufacturing,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND011,Larsen & Toubro,India,Engineering and Construction,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND012,Tata Motors,India,Automotive,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND013,Maruti Suzuki India,India,Automotive,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND014,ITC,India,Consumer Goods,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND015,Hindalco Industries,India,Metals and Manufacturing,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND016,Sun Pharmaceutical Industries,India,Pharmaceuticals,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND017,Dr. Reddy's Laboratories,India,Pharmaceuticals,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND018,Asian Paints,India,Consumer Goods,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND019,Bharti Airtel,India,Telecommunications,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND020,Titan Company,India,Retail and Consumer Goods,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA001,Microsoft,United States,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA002,Alphabet,United States,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA003,Amazon,United States,Retail and Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA004,Apple,United States,Information Technology and Consumer Electronics,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA005,Meta Platforms,United States,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA006,JPMorgan Chase,United States,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA007,Bank of America,United States,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA008,Goldman Sachs,United States,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA009,Walmart,United States,Retail,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA010,Costco Wholesale,United States,Retail,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA011,Ford Motor Company,United States,Automotive,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA012,General Motors,United States,Automotive,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA013,Boeing,United States,Aerospace,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA014,UnitedHealth Group,United States,Healthcare,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+USA015,Procter & Gamble,United States,Consumer Goods,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+UK001,HSBC Holdings,United Kingdom,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+UK002,Barclays,United Kingdom,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+UK003,Lloyds Banking Group,United Kingdom,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+UK004,BT Group,United Kingdom,Telecommunications,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+UK005,Vodafone Group,United Kingdom,Telecommunications,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+UK006,Tesco,United Kingdom,Retail,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+UK007,Unilever,United Kingdom,Consumer Goods,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+UK008,Rolls-Royce Holdings,United Kingdom,Aerospace and Engineering,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+UK009,AstraZeneca,United Kingdom,Pharmaceuticals,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+CAN001,Royal Bank of Canada,Canada,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+CAN002,Toronto-Dominion Bank,Canada,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+CAN003,Bank of Montreal,Canada,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+CAN004,Scotiabank,Canada,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+CAN005,Enbridge,Canada,Energy,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+AUS001,BHP Group,Australia,Mining,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+AUS002,Commonwealth Bank of Australia,Australia,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+AUS003,Westpac Banking Corporation,Australia,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+AUS004,ANZ Group Holdings,Australia,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+AUS005,Telstra Group,Australia,Telecommunications,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+AUS006,Woolworths Group,Australia,Retail,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
