@@ -1,26 +1,35 @@
-# BLS JOLTS benchmark ingestion
+# BLS JOLTS Benchmark
 
-PR #2 adds the first parser for the project's official benchmark layer.
+## PR #2: ingestion
 
-The ingestion layer reads official BLS JOLTS bulk files for hires, quits,
-layoffs and discharges, and other separations.
+The benchmark ingestion layer parses official BLS JOLTS bulk flow files and preserves the source-defined concepts:
 
-The parser preserves the BLS flow concept in flow_concept and records
-source_id=US_JOLTS and the source filename.
+- hires;
+- quits;
+- layoffs and discharges;
+- other separations.
 
-## Measurement rule
+The repository stores the third category as `layoffs_and_discharges_bls`. It is not relabeled as `firings`.
 
-The JOLTS Layoffs and Discharges series is not renamed to firings. BLS
-includes firings within the broader employer-initiated layoffs-and-discharges
-category. The benchmark therefore documents the relationship without claiming
-that the published series is a firing series.
+## PR #3: metadata normalization
 
-## Missingness
+PR #3 adds a metadata normalization layer for the official BLS bulk files:
 
-Rows with a blank published value are skipped rather than converted to zero.
+- `jt.series`;
+- `jt.industry`;
+- `jt.period`;
+- `jt.seasonal`.
 
-## Reproducibility
+The normalization joins metadata by identifiers supplied by BLS while preserving source-defined fields. It does not invent a new industry, seasonal-adjustment, or period taxonomy.
 
-Raw acquisition remains the responsibility of scripts/acquire_bls_jolts.py.
-This parser operates only on files already present in data/raw/bls_jolts/.
-The parser tests require no external network connection.
+The executable entry point is `scripts/normalize_bls_jolts.py`. Its default output is `data/analysis/bls_jolts_series.csv`.
+
+The script requires `jt.series` to have been acquired into `data/raw/bls_jolts/`. The repository does not claim that external BLS artifacts have been downloaded merely because acquisition and normalization scripts exist.
+
+## Measurement firewall
+
+JOLTS publishes hires, quits, layoffs and discharges, and other separations. A missing firing count remains missing. The benchmark therefore supplies a source-defined aggregate employer-initiated separation measure without manufacturing a firing decomposition.
+
+## Validation boundary
+
+PR #3 normalizes metadata. It does not yet create the organization-level empirical panel or make causal claims. Raw acquisition, parsing, validation, harmonization, estimation, and robustness remain distinct stages.
