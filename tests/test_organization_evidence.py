@@ -22,7 +22,15 @@ def test_tcs_evidence_preserves_source_defined_concepts():
 
 def test_tcs_attrition_is_not_relabelled_as_firings():
     rows = read_rows()
-    attrition_rows = [row for row in rows if row["evidence_type"] == "attrition"]
+    attrition_rows = [
+        row
+        for row in rows
+        if row["organization_id"] == "IND001"
+        and row["evidence_type"] == "attrition"
+    ]
     assert attrition_rows
     assert all(row["flow_concept"] != "firings" for row in attrition_rows)
-    assert all(row["source_defined_measure"].startswith("IT services attrition") for row in attrition_rows)
+    assert all(
+        row["source_defined_measure"].startswith("IT services attrition")
+        for row in attrition_rows
+    )
