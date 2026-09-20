@@ -1,0 +1,17 @@
+field_name,required,controlled_values,description
+organization_id,yes,,Must match metadata/organization_registry.csv.
+organization_unit,yes,,Document the organizational unit to which the observation applies.
+group_id,yes,,Stable identifier for the source-defined group.
+group_definition,yes,,Verbatim or faithfully transcribed source definition.
+period_start,yes,,Start of the documented observation period.
+period_end,yes,,End of the documented observation period.
+employment_denominator,yes,,Evidence that the denominator needed for Paper 1 rates is available.
+hiring_source,yes,,Source artifact supporting group-specific hiring observations.
+firing_source,yes,,Source artifact supporting group-specific firing observations or an explicitly mapped source-defined involuntary separation measure.
+separation_source,yes,,Source artifact supporting voluntary and/or employer-initiated separation classification where required.
+source_definition,yes,,Source-defined terminology must be preserved.
+provenance_status,yes,"pending,verified,insufficient",Whether provenance is sufficient for reproduction.
+definition_consistency,yes,"pending,verified,inconsistent",Whether definitions are comparable across the observation period.
+measurement_status,yes,"pending,observed,reported,reconstructed,estimated,missing",Measurement status for the screening evidence.
+screening_status,yes,"Pending,Eligible,Secondary,Excluded",Pre-specified screening outcome.
+screening_rationale,yes,,Reason based on data and definition requirements rather than observed flow magnitude.
