@@ -1,0 +1,26 @@
+priority,country,source_id,dataset,frequency,coverage,primary_use,organization_level,group_detail,acquisition_status,notes
+1,India,IND_QES,Quarterly Employment Survey,quarterly,9 selected sectors,employment benchmark,establishment,limited,source_verified,"Official Labour Bureau establishment survey; source definition and coverage verified."
+1,India,IND_ASI,Annual Survey of Industries,annual,manufacturing,employment and labour-turnover benchmark,establishment/industry,limited,source_verified,"Official Labour Bureau source; employment and labour-turnover concepts retained."
+1,India,IND_LABSTAT,Indian Labour Statistics,annual/historical,multiple labour statistics,macro benchmark,aggregate,limited,source_verified,"Official Labour Bureau historical/current benchmark series."
+1,India,IND_IDCLRA,Industrial Disputes Closures Retrenchments and Lay-offs,monthly/annual,multiple sectors,employer-initiated separation context,aggregate,limited,source_verified,"Use source-defined retrenchment and lay-off concepts; do not equate retrenchment with all firings."
+1,United States,US_JOLTS,Job Openings and Labor Turnover Survey,monthly,establishments by industry and size,flow benchmark,establishment,not demographic primary,source_verified,"JOLTS publishes layoffs and discharges as an aggregate category that includes firings; do not map it to firings."
+1,Multiple,ORG_PUBLIC,Organization disclosures,annual where available,selected organizations,primary organization panel,organization,source-dependent,planned,"Acquire only after organization-level group definitions and flow counts are verified."
+
+
+## Acquisition gate
+
+An item may move from `planned` to `acquired` only after the source artifact has been obtained and its provenance recorded. Source verification alone does not imply that observations have been acquired.
+
+Required provenance for each imported observation:
+- source_id;
+- source title;
+- official URL or stable document identifier;
+- retrieval date;
+- reporting period;
+- source-defined variable name;
+- source definition;
+- original value;
+- transformation status.
+
+For group-specific organization data, acquisition additionally requires evidence that the reported group dimension and flow concept correspond to the observation stored in the analysis schema.
+
