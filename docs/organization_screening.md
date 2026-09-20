@@ -1,37 +1,48 @@
 # Organization Screening Protocol
 
-The organization registry is a candidate universe, not an empirical dataset. No organization is admitted to the primary panel merely because it is large, public, or known to publish diversity information.
+The organization registry is a candidate universe, not an empirical dataset. PR #5 makes the screening protocol operational without admitting any candidate to the empirical panel.
 
-## Primary-panel admission
+## Screening record
 
-An organization may be marked `eligible_primary_panel=Yes` only after source verification establishes, for a common and documented time window:
+Each group-level screening record should document:
 
-1. An identifiable organization-level unit.
-2. At least one reproducible group definition.
-3. Employment stocks or denominators needed to construct Paper 1's group-specific employee flow rates.
-4. Group-specific hiring observations.
-5. Group-specific firing observations, or a source-defined involuntary-separation measure that can be mapped without changing the source definition.
-6. Sufficient separation information to distinguish voluntary from employer-initiated flows where the analysis requires it.
-7. A documented reference period.
-8. Source provenance sufficient to reproduce the observation.
-9. Definitions that remain comparable across the organization's observation period.
-10. No silent conversion of missing observations into zero.
+1. the organization and organizational unit;
+2. a stable group identifier and source-defined group definition;
+3. the reference period;
+4. the employment denominator required for Paper 1 flow rates;
+5. evidence for group-specific hiring;
+6. evidence for group-specific firing, or an explicitly mapped source-defined involuntary-separation measure;
+7. separation information needed for the intended specification;
+8. source-defined terminology;
+9. provenance;
+10. cross-period definition consistency;
+11. a pre-specified screening outcome and rationale.
 
-## Firing variable rule
-
-The registry must preserve the source's terminology. A source category such as "layoffs and discharges" must not be renamed "firings" merely to fit the analysis. For example, U.S. JOLTS defines layoffs and discharges as a broader category that includes firings, layoffs, and other employer-initiated involuntary separations. Such observations can be stored under the source-defined field and mapped to an analytical category only with an explicit mapping rule.
+The schema is stored in metadata/organization_screening_schema.csv.
 
 ## Screening outcomes
 
-Use the following outcomes:
+Use only:
 
-- `Eligible`: all primary-panel requirements verified.
-- `Secondary`: useful for benchmarks or robustness, but not sufficient for the primary organization-level panel.
-- `Pending`: candidate requires source verification.
-- `Excluded`: fails a pre-specified inclusion rule.
+- Eligible: all primary-panel requirements verified.
+- Secondary: useful for benchmarks or robustness, but insufficient for the primary organization-level panel.
+- Pending: source verification remains incomplete.
+- Excluded: fails a pre-specified inclusion rule.
 
-Screening decisions must be based on data and definition requirements, not on the observed direction or magnitude of group-specific flows.
+The screening code validates these categories but does not assign an outcome automatically.
 
-## Current registry status
+## Measurement firewall
 
-The initial registry contains candidate organizations across India, the United States, the United Kingdom, Canada, and Australia. All entries are currently `Pending`; no group-specific observations are implied by their inclusion.
+A screening record must not transform a broad source-defined category into firings merely to satisfy the schema. The source definition remains part of the record.
+
+The screening process also does not convert missing flow counts into zero.
+
+## Primary-panel requirements
+
+The helper in src/hrproject/organization_screening.py exposes requirement flags for organization unit, group definition, employment denominator, hiring evidence, firing/separation evidence, provenance, and definition consistency.
+
+These flags are diagnostic. They are not an eligibility model and do not use observed flow magnitudes to determine admission.
+
+## Acquisition boundary
+
+PR #5 does not claim that organization-level observations have been acquired. The existing organization registry remains a candidate universe, and the screening records remain evidence-driven inputs for later acquisition and harmonization.
