@@ -30,9 +30,9 @@ def test_benchmark_preserves_bls_concepts(tmp_path):
 
     concepts = {row["flow_concept"] for row in rows}
     assert concepts == {"hires", "quits", "layoffs_and_discharges_bls"}
-    assert all(row["firings"] if "firings" in row else True for row in rows)
     assert not any(row["flow_concept"] == "firings" for row in rows)
     assert next(row for row in rows if row["flow_concept"] == "quits")["footnote_codes"] == "P"
+    assert all(row["measurement_status"] == "observed" for row in rows)
 
 
 def test_benchmark_csv_writer(tmp_path):
