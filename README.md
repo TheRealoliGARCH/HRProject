@@ -57,7 +57,7 @@ estimation
 robustness and sensitivity analysis
 ```
 
-The repository is designed so that raw source-derived observations are preserved and transformations are reproducible.
+The repository is designed so that raw source-derived observations are preserved and transformations are reproducible. Source verification, data acquisition, and variable validation are separate gates: identifying a credible source does not mean that the required observations have already been acquired.
 
 ## Core variables
 
@@ -103,6 +103,8 @@ For India, Labour Bureau's Quarterly Employment Survey is an establishment-based
 - Sample selection is based on data requirements, not anticipated results.
 - Causal claims require a separate identification strategy.
 - Measurement uncertainty is retained rather than hidden.
+- Source verification is not treated as data acquisition.
+- Broad source categories are not silently decomposed into narrower concepts.
 
 ## Current status
 
