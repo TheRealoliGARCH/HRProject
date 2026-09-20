@@ -45,4 +45,7 @@ def test_benchmark_csv_writer(tmp_path):
 
     text = output.read_text(encoding="utf-8")
     assert "layoffs_and_discharges_bls" in text
-    assert "firings" in text.splitlines()[0]\n    assert ",firings" in text.splitlines()[0]\n    assert not any(",firings," in line for line in text.splitlines()[1:])
+    assert "firings" in text.splitlines()[0]
+    assert ",firings" in text.splitlines()[0]
+    assert all(row["flow_concept"] != "firings" for row in rows)
+    assert all(row["firings"] is None for row in rows)
