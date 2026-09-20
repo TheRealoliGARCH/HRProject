@@ -3,15 +3,18 @@ import csv
 
 
 def read_rows() -> list[dict[str, str]]:
-    path = Path("metadata/organization_source_evidence_infosys.csv")
+    path = Path("metadata/organization_source_evidence.csv")
     with path.open(encoding="utf-8", newline="") as handle:
-        return list(csv.DictReader(handle))
+        return [
+            row
+            for row in csv.DictReader(handle)
+            if row["organization_id"] == "IND002"
+        ]
 
 
 def test_infosys_has_group_specific_hire_and_turnover_evidence():
     rows = read_rows()
     assert rows
-    assert any(row["organization_id"] == "IND002" for row in rows)
     assert any(
         row["flow_concept"] == "hires"
         and row["evidence_type"] == "new_hire_count"
