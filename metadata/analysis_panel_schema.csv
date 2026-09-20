@@ -1,0 +1,21 @@
+field,type,required,definition,admission_rule
+organization_id,string,yes,Stable organization identifier,nonempty
+country,string,yes,Country of organization,nonempty
+industry,string,yes,Industry classification,nonempty
+year,integer,yes,Observation year,year >= 2018
+group_id,string,yes,Stable group identifier within the harmonized taxonomy,nonempty
+group_definition,string,yes,Source-defined or explicitly harmonized group definition,nonempty
+employment_begin,nonnegative_integer,yes,Employment at beginning of interval,>= 0 when observed; missing remains missing
+employment_end,nonnegative_integer,yes,Employment at end of interval,>= 0 when observed; missing remains missing
+hires,nonnegative_integer,yes,Employees hired during interval,>= 0 when observed; missing remains missing
+firings,nonnegative_integer,conditional,Employees fired during interval,>= 0 when observed; never inferred from broader categories
+quits,nonnegative_integer,no,Voluntary separations,>= 0 when observed
+layoffs,nonnegative_integer,no,Source-defined layoffs where separately reported,>= 0 when observed
+layoffs_and_discharges_bls,nonnegative_integer,no,BLS JOLTS employer-initiated involuntary separation category,>= 0 when observed; not relabeled as firings
+other_separations,nonnegative_integer,no,Other separations,>= 0 when observed
+flow_concept,string,yes,Exact flow concept represented by the observation,source concept retained
+source_id,string,yes,Unique source registry identifier,nonempty
+measurement_status,categorical,yes,Observation measurement status,controlled vocabulary
+firing_quality,categorical,yes,Quality of firing measurement,controlled vocabulary
+source_definition,string,yes,Source wording or documented definition,nonempty
+notes,string,no,Data-quality or transformation notes,optional
