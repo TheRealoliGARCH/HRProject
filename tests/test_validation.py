@@ -62,3 +62,28 @@ def test_invalid_quality_is_rejected():
     }
     errors = validate_row(row)
     assert any("firing_quality" in error for error in errors)
+
+
+def test_jolts_aggregate_is_not_a_firing_measure():
+    row = {
+        "source_id": "US_JOLTS",
+        "flow_concept": "firings",
+        "layoffs_and_discharges_bls": 25,
+        "firings": None,
+        "measurement_status": "reported",
+        "firing_quality": "missing",
+    }
+    errors = validate_row(row)
+    assert any("cannot be relabeled as firings" in error for error in errors)
+
+
+def test_jolts_aggregate_is_valid_as_its_own_concept():
+    row = {
+        "source_id": "US_JOLTS",
+        "flow_concept": "layoffs_and_discharges_bls",
+        "layoffs_and_discharges_bls": 25,
+        "firings": None,
+        "measurement_status": "reported",
+        "firing_quality": "missing",
+    }
+    assert validate_row(row) == []
