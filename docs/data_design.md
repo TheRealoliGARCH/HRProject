@@ -88,3 +88,13 @@ source acquisition
 ```
 
 No empirical result should determine inclusion or transformation rules after the results are observed.
+
+
+## Source-defined flow concepts
+
+The schema preserves source-defined flow categories. A broader source category is not silently decomposed into a narrower analytical category.
+
+For example, U.S. BLS JOLTS reports separations as quits, layoffs and discharges, and other separations. BLS explicitly states that layoffs and discharges include firings, but the published JOLTS measure is the broader category. Accordingly, JOLTS observations are stored in `layoffs_and_discharges_bls`; they are not entered as `firings` without a separately documented firing observation or defensible official derivation.
+
+The field `flow_concept` identifies the concept represented by each observation, while `source_definition` preserves the source's wording or documented definition. This permits harmonization for analysis without erasing measurement differences.
+
