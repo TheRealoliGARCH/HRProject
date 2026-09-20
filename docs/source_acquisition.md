@@ -15,7 +15,7 @@ Indian Labour Statistics provides historical national labour-market context.
 Industrial-dispute, closure, retrenchment and lay-off statistics provide a separate employer-initiated separation benchmark.
 
 ## United States
-JOLTS is a benchmark source for hires and separations. Its separation categories are quits, layoffs and discharges, and other separations. Layoffs and discharges include firings and other employer-initiated discharges, so this field must not automatically be renamed firings.
+JOLTS is a benchmark source for hires and separations. Its separation categories are quits, layoffs and discharges, and other separations. BLS defines layoffs and discharges as involuntary separations initiated by the employer and explicitly includes firings among that broader category. The repository therefore stores the published JOLTS measure as `layoffs_and_discharges_bls` and does not rename or decompose it into `firings` without a separately documented firing observation or defensible official derivation. This distinction is part of the pre-specified measurement protocol.
 
 ## Organization sources
 Preferred sources, in descending order of directness:
