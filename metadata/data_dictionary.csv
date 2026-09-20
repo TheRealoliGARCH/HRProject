@@ -8,10 +8,12 @@ group_definition,raw,string,yes,Original/source definition of the group,nonempty
 employment_begin,raw,nonnegative_integer,yes,Employment at beginning of interval,value >= 0
 employment_end,raw,nonnegative_integer,yes,Employment at end of interval,value >= 0
 hires,raw,nonnegative_integer,yes,Employees hired during interval,value >= 0
-firings,raw,nonnegative_integer,conditional,Employees fired during interval,value >= 0 when observed
+firings,raw,nonnegative_integer,conditional,Employees fired during interval; do not infer from broader employer-initiated separation categories,value >= 0 when observed
 quits,raw,nonnegative_integer,no,Voluntary separations,value >= 0 when observed
-layoffs,raw,nonnegative_integer,no,Layoffs,value >= 0 when observed
+layoffs,raw,nonnegative_integer,no,Source-defined layoffs where separately reported,value >= 0 when observed
+layoffs_and_discharges_bls,raw,nonnegative_integer,no,BLS JOLTS employer-initiated involuntary separations including layoffs discharges and firings,value >= 0 when observed
 other_separations,raw,nonnegative_integer,no,Other separations,value >= 0 when observed
+flow_concept,raw,string,yes,Exact flow concept represented by the observation,controlled vocabulary or documented source concept
 source_id,raw,string,yes,Unique source registry identifier,nonempty
 measurement_status,raw,categorical,yes,observed reported reconstructed estimated missing,controlled vocabulary
 firing_quality,raw,categorical,yes,Directly reported officially derived reconstructed estimated missing ambiguous,controlled vocabulary
