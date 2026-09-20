@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 from urllib.request import urlretrieve
+from datetime import date
 
 BASE = "https://download.bls.gov/pub/time.series/JT/"
 FILES = (
@@ -29,10 +30,21 @@ FILES = (
 
 def acquire(output: Path) -> None:
     output.mkdir(parents=True, exist_ok=True)
+    manifest = []
     for name in FILES:
         destination = output / name
         urlretrieve(BASE + name, destination)
+        manifest.append(
+            f"{name},{BASE + name},{date.today().isoformat()},{destination}"
+        )
         print(f"acquired {name} -> {destination}")
+
+    (output / "acquisition_manifest.csv").write_text(
+        "artifact,official_url,retrieval_date,local_path\n"
+        + "\n".join(manifest)
+        + "\n",
+        encoding="utf-8",
+    )
 
 
 def main() -> None:
