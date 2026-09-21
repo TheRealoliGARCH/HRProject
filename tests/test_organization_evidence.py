@@ -53,3 +53,22 @@ def test_hcltech_evidence_preserves_source_defined_concepts():
         for row in hcl
         if row["evidence_type"] == "turnover_rate"
     )
+
+def test_tech_mahindra_evidence_preserves_source_defined_concepts():
+    rows = read_rows()
+    techm = [row for row in rows if row["organization_id"] == "IND005"]
+    assert techm
+    assert any(
+        row["flow_concept"] == "hires"
+        and row["evidence_type"] == "new_hire_count"
+        and row["unit"] == "count"
+        and row["value"] == "25648"
+        for row in techm
+    )
+    assert all(row["screening_status"] == "Secondary" for row in techm)
+    assert all(row["flow_concept"] != "firings" for row in techm)
+    assert all(
+        row["flow_concept"] != "firings"
+        for row in techm
+        if row["evidence_type"] == "turnover_rate"
+    )
