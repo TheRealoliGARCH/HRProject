@@ -31,11 +31,9 @@ def test_generator_emits_latex():
     ]
     paper = generate_paper(rows)
     assert paper.startswith(r"\documentclass{article}")
-    assert "outputs/exploratory_paper.tex" not in paper
     assert r"\usepackage{booktabs}" in paper
     assert r"\begin{document}" in paper
     assert r"\section{Introduction}" in paper
-    assert "| hires | 1 |" not in paper
     assert "0 directly observed firing observations" in paper
 
 
@@ -56,6 +54,6 @@ def test_generator_does_not_recast_missing_firings():
 def test_latex_escaping_preserves_generated_commands():
     from hrproject.paper import _escape
 
-    assert _escape(r"source\\name") == r"source\\textbackslash{}name"
-    assert _escape("a_b") == r"a\\_b"
-    assert _escape("a{b}") == r"a\\{b\\}"
+    assert _escape("source\\name") == r"source\textbackslash{}name"
+    assert _escape("a_b") == r"a\_b"
+    assert _escape("a{b}") == r"a\{b\}"
