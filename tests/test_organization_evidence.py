@@ -72,3 +72,29 @@ def test_tech_mahindra_evidence_preserves_source_defined_concepts():
         for row in techm
         if row["evidence_type"] == "turnover_rate"
     )
+
+def test_hsbc_evidence_preserves_source_defined_concepts():
+    rows = read_rows()
+    hsbc = [row for row in rows if row["organization_id"] == "UK001"]
+    assert hsbc
+    assert any(
+        row["flow_concept"] == "hires"
+        and row["evidence_type"] == "new_hire_count"
+        and row["unit"] == "count"
+        and row["value"] == "12685"
+        for row in hsbc
+    )
+    assert any(
+        row["flow_concept"] == "employee_turnover"
+        and row["evidence_type"] == "employee_turnover_count"
+        and row["unit"] == "count"
+        and row["value"] == "16683"
+        for row in hsbc
+    )
+    assert all(row["screening_status"] == "Secondary" for row in hsbc)
+    assert all(row["flow_concept"] != "firings" for row in hsbc)
+    assert all(
+        row["flow_concept"] != "firings"
+        for row in hsbc
+        if row["evidence_type"] in {"employee_turnover_count", "new_hire_count"}
+    )
