@@ -2,7 +2,7 @@ organization_id,organization_name,country,industry,ownership,public_status,group
 IND001,Tata Consultancy Services,India,Information Technology,Private,Public,Verified,Verified,ORG_PUBLIC,Secondary,"Verified group-specific hiring distribution and workforce/attrition evidence; group-specific firing counts not established."
 IND002,Infosys,India,Information Technology,Private,Public,Verified,Verified,ORG_PUBLIC,Secondary,"Verified group-specific hiring counts and turnover evidence; group-specific firing counts not established."
 IND003,Wipro,India,Information Technology,Private,Public,Verified,Verified,ORG_PUBLIC,Secondary,"Verified group-specific hiring counts and source-defined attrition evidence; group-specific firing counts not established."
-IND004,HCLTech,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
+IND004,HCLTech,India,Information Technology,Private,Public,Verified,Verified,ORG_PUBLIC,Secondary,"Verified FY2025 group-specific hiring count for fresh graduates and source-defined voluntary turnover by gender; group-specific firing counts not established."
 IND005,Tech Mahindra,India,Information Technology,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
 IND006,ICICI Bank,India,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
 IND007,HDFC Bank,India,Financial Services,Private,Public,To verify,To verify,ORG_PUBLIC,Pending,Verify organization-level group-specific hires/firings and consistent annual definitions.
