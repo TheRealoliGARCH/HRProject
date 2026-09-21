@@ -129,9 +129,8 @@ For India, Labour Bureau's Quarterly Employment Survey is an establishment-based
 
 ## Repository layout
 
-- `data/raw/` — immutable source-derived observations.
-- `data/validated/` — observations passing validation.
-- `data/analysis/` — harmonized panel and derived measures.
+- `data/raw/` — raw-source storage and source-specific benchmark inputs.
+- `data/analysis/` — analysis-data staging and documentation.
 - `metadata/` — data dictionary, source registry, organization registry, and acquisition plan.
 - `src/hrproject/` — validation and measurement code.
 - `tests/` — automated data-integrity tests.
