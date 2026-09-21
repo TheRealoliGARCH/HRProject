@@ -6,7 +6,7 @@
 
 The empirical objective is deliberately narrower than a generic HR analytics project: determine whether group-specific employee-flow measures are observable and statistically informative across organizations, industries, countries, and time, while preserving the original definitions and limitations of the underlying sources.
 
-The project treats **measurement, theory, and empirical validation as separate stages**:
+The project treats **measurement, theory, exploration, and later confirmation as separate stages**:
 
 1. **Paper 1 — Group-Specific Employee Flow Rates:** measurement framework.
 2. **Paper 2 — The Effects of Group-Specific Employee Flows:** theoretical implications.
@@ -152,6 +152,4 @@ For India, Labour Bureau's Quarterly Employment Survey is an establishment-based
 
 ## Current status
 
-Papers 1 and 2 are present in the repository as PDFs. The exploratory implementation is being developed through the data-science pipeline. The repository retains the original empirical-design machinery because it may support a later confirmatory study.
-
-The branch currently contains the validation layer, data dictionary, source registry, organization-registry scaffold, acquisition plan, source-acquisition protocol, tests, and analysis-data scaffolding.
+Papers 1 and 2 are present in the repository as PDFs, and the reviewed Paper 3 LaTeX source is present under `outputs/`. The current evidence layer contains 108 observations from 7 organizations, and the repository includes the exploratory evidence profiler, validation layer, source/acquisition metadata, tests, and reproducible paper-generation machinery. The generated LaTeX artifact is intentionally intermediate; the reviewed publication source is maintained separately. The repository retains empirical-design machinery that may support a later confirmatory study.
