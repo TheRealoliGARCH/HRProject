@@ -65,9 +65,9 @@ Preserve the source-derived observation and provenance before harmonization.
 
 Every observation should retain enough metadata to reconstruct:
 
-[
-	ext{source} ightarrow 	ext{observation} ightarrow 	ext{harmonized field}.
-]
+```text
+source -> observation -> harmonized field
+```
 
 ### 4. Validation
 
@@ -134,15 +134,9 @@ Exploratory patterns may motivate hypotheses for later confirmatory analysis.
 
 The workflow is:
 
-[
-	ext{exploration}
-ightarrow
-	ext{candidate hypothesis}
-ightarrow
-	ext{new/held-out evidence}
-ightarrow
-	ext{confirmatory test}.
-]
+```text
+exploration -> candidate hypothesis -> new/held-out evidence -> confirmatory test
+```
 
 The exploratory dataset must not be presented as causal identification.
 
@@ -167,15 +161,9 @@ Paper 3 asks what the available evidence actually permits us to observe.
 
 Thus:
 
-[
-	ext{Paper 1: measurement}
-ightarrow
-	ext{Paper 2: theory}
-ightarrow
-	ext{Paper 3: exploration}
-ightarrow
-	ext{future confirmatory testing}.
-]
+```text
+Paper 1: measurement -> Paper 2: theory -> Paper 3: exploration -> future confirmatory testing
+```
 
 This ordering prevents the exploratory dataset from being engineered around an expected theoretical result.
 
