@@ -13,7 +13,7 @@ from typing import Iterable, Mapping
 
 
 DEFAULT_EVIDENCE = Path("metadata/organization_source_evidence.csv")
-DEFAULT_OUTPUT = Path("outputs/exploratory_paper.tex")
+DEFAULT_OUTPUT = Path("outputs/generated_exploratory_paper.tex")
 
 
 def load_evidence(path: Path = DEFAULT_EVIDENCE) -> list[dict[str, str]]:
@@ -43,7 +43,6 @@ def _escape(value: object) -> str:
     """Escape ordinary text for LaTeX."""
     text = str(value)
     replacements = {
-        "\\": r"\textbackslash{}",
         "&": r"\&",
         "%": r"\%",
         "$": r"\$",
@@ -53,10 +52,9 @@ def _escape(value: object) -> str:
         "}": r"\}",
         "~": r"\textasciitilde{}",
         "^": r"\textasciicircum{}",
+        "\\": r"\textbackslash{}",
     }
-    for old, new in replacements.items():
-        text = text.replace(old, new)
-    return text
+    return "".join(replacements.get(char, char) for char in text)
 
 
 def _table(mapping: Mapping[str, int], label: str) -> str:

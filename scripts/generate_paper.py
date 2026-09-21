@@ -12,6 +12,6 @@ from hrproject.paper import write_paper  # noqa: E402
 if __name__ == "__main__":
     path = write_paper(
         ROOT / "metadata/organization_source_evidence.csv",
-        ROOT / "outputs/exploratory_paper.tex",
+        ROOT / "outputs/generated_exploratory_paper.tex",
     )
     print(path)
