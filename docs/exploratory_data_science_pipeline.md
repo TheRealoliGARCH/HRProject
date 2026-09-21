@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Paper 3 is being reframed as an exploratory data-science study of group-specific employee flows. The purpose is to determine what can be measured from heterogeneous public organizational sources, characterize the resulting observations, identify systematic patterns and measurement gaps, and generate candidate hypotheses for later confirmatory work.
+Paper 3 is an exploratory data-science study of group-specific employee flows. The purpose is to determine what can be measured from heterogeneous public organizational sources, characterize the resulting observations, identify systematic patterns and measurement gaps, and generate candidate hypotheses for later confirmatory work.
 
 The pipeline does **not** assume that the theoretical propositions in Paper 2 are true.
 
@@ -145,7 +145,7 @@ The exploratory dataset must not be presented as causal identification.
 The existing organization-screening framework remains useful.
 
 - **Primary:** evidence meeting the requirements for the intended analysis.
-- **Secondary:** useful verified evidence that does not establish the full firing-flow measurement required for the original confirmatory design.
+- **Secondary:** useful verified evidence that does not establish the full firing-flow measurement required for the original confirmatory design. This evidence remains part of the exploratory dataset rather than a completed primary estimation panel.
 - **Pending:** source screening or verification incomplete.
 - **Excluded:** evidence fails a defined admission requirement.
 
