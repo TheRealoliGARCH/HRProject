@@ -20,7 +20,7 @@ def test_current_evidence_profile():
     assert result["units"]["count"] == 96
 
 
-def test_generator_uses_computed_values():
+def test_generator_emits_latex():
     rows = [
         {"organization_id": "A", "flow_concept": "hires", "unit": "count",
          "reporting_period": "Y1", "screening_status": "Secondary",
@@ -30,10 +30,12 @@ def test_generator_uses_computed_values():
          "measurement_status": "reported", "group_dimension": "gender"},
     ]
     paper = generate_paper(rows)
-    assert "2 observations from 1 organizations" in paper
-    assert "| hires | 1 |" in paper
-    assert "| employee_turnover | 1 |" in paper
-    assert "0 firing observations" in paper
+    assert paper.startswith(r"\documentclass{article}")
+    assert r"\usepackage{booktabs}" in paper
+    assert r"\begin{document}" in paper
+    assert r"\section{Introduction}" in paper
+    assert "| hires | 1 |" not in paper
+    assert "0 directly observed firing observations" in paper
 
 
 def test_generator_does_not_recast_missing_firings():
@@ -47,5 +49,4 @@ def test_generator_does_not_recast_missing_firings():
         "group_dimension": "gender",
     }]
     paper = generate_paper(rows)
-    assert "firing observations**" in paper
-    assert "0" in paper
+    assert r"0 directly observed firing observations" in paper

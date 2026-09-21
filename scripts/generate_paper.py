@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the current exploratory Paper 3 from repository evidence."""
+"""Generate the current exploratory Paper 3 as LaTeX source."""
 from pathlib import Path
 import sys
 
@@ -10,6 +10,8 @@ from hrproject.paper import write_paper  # noqa: E402
 
 
 if __name__ == "__main__":
-    path = write_paper(ROOT / "metadata/organization_source_evidence.csv",
-                       ROOT / "outputs/exploratory_paper.md")
+    path = write_paper(
+        ROOT / "metadata/organization_source_evidence.csv",
+        ROOT / "outputs/exploratory_paper.tex",
+    )
     print(path)

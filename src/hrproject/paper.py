@@ -1,4 +1,4 @@
-"""Deterministic generator for the exploratory Paper 3.
+"""Deterministic LaTeX generator for exploratory Paper 3.
 
 The generator reads source-preserving evidence and computes all reported
 coverage statistics from the current CSV. It does not infer missing values,
@@ -13,7 +13,7 @@ from typing import Iterable, Mapping
 
 
 DEFAULT_EVIDENCE = Path("metadata/organization_source_evidence.csv")
-DEFAULT_OUTPUT = Path("outputs/exploratory_paper.md")
+DEFAULT_OUTPUT = Path("outputs/exploratory_paper.tex")
 
 
 def load_evidence(path: Path = DEFAULT_EVIDENCE) -> list[dict[str, str]]:
@@ -39,9 +39,37 @@ def profile(rows: list[Mapping[str, str]]) -> dict[str, object]:
     }
 
 
+def _escape(value: object) -> str:
+    """Escape ordinary text for LaTeX."""
+    text = str(value)
+    replacements = {
+        "\\": r"\textbackslash{}",
+        "&": r"\&",
+        "%": r"\%",
+        "$": r"\$",
+        "#": r"\#",
+        "_": r"\_",
+        "{": r"\{",
+        "}": r"\}",
+        "~": r"\textasciitilde{}",
+        "^": r"\textasciicircum{}",
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    return text
+
+
 def _table(mapping: Mapping[str, int], label: str) -> str:
-    lines = [f"| {label} | Observations |", "| --- | ---: |"]
-    lines.extend(f"| {key} | {value} |" for key, value in mapping.items())
+    lines = [
+        r"\begin{table}[htbp]",
+        r"\centering",
+        r"\begin{tabular}{lr}",
+        r"\toprule",
+        f"{_escape(label)} & Observations \\\\",
+        r"\midrule",
+    ]
+    lines.extend(f"{_escape(key)} & {value} \\\\" for key, value in mapping.items())
+    lines.extend([r"\bottomrule", r"\end{tabular}", r"\end{table}"])
     return "\n".join(lines)
 
 
@@ -55,17 +83,24 @@ def generate_paper(rows: list[Mapping[str, str]]) -> str:
     count_units = units.get("count", 0)
     noncount = n - count_units
 
-    return f"""# Exploratory Analysis of Group-Specific Employee Flows
+    return f"""\\documentclass{{article}}
+\\usepackage{{booktabs}}
 
-## Abstract
+\\title{{Exploratory Analysis of Group-Specific Employee Flows}}
+\\author{{}}
+\\date{{}}
 
-This paper develops an exploratory data-science analysis of publicly reported group-specific employee-flow evidence across heterogeneous organizations. The current evidence layer contains **{n} observations from {orgs} organizations**. The study preserves source-defined concepts, units, provenance, and missingness rather than assuming conceptual equivalence across organizations. The current evidence contains **{flows.get("hires", 0)} hire observations**, **{flows.get("employee_turnover", 0)} employee-turnover observations**, **{flows.get("employment_end", 0)} employment-end/workforce-stock observations**, and **{flows.get("other_separations", 0)} other-separation observations**. Directly observed group-specific firing observations are currently absent. The paper therefore treats measurement availability and comparability as empirical objects and does not interpret exploratory patterns as causal effects.
+\\begin{{document}}
 
-**Keywords:** employee flows; employee turnover; group-specific measurement; exploratory data science; workforce composition; organizational reporting; measurement uncertainty; human resources.
+\\maketitle
 
----
+\\begin{{abstract}}
+This paper develops an exploratory data-science analysis of publicly reported group-specific employee-flow evidence across heterogeneous organizations. The current evidence layer contains {n} observations from {orgs} organizations. The study preserves source-defined concepts, units, provenance, and missingness rather than assuming conceptual equivalence across organizations. The current evidence contains {flows.get("hires", 0)} hire observations, {flows.get("employee_turnover", 0)} employee-turnover observations, {flows.get("employment_end", 0)} employment-end/workforce-stock observations, and {flows.get("other_separations", 0)} other-separation observations. Directly observed group-specific firing observations are currently absent. The paper therefore treats measurement availability and comparability as empirical objects and does not interpret exploratory patterns as causal effects.
+\\end{{abstract}}
 
-## 1. Introduction
+\\noindent\\textbf{{Keywords:}} employee flows; employee turnover; group-specific measurement; exploratory data science; workforce composition; organizational reporting; measurement uncertainty; human resources.
+
+\\section{{Introduction}}
 
 Employee-flow research distinguishes inflows from outflows, but public organizational reporting does not necessarily expose these quantities at a common level of definition or aggregation. Organizations may report hires, attrition, turnover, layoffs, involuntary turnover, workforce stocks, or other separation measures using organization-specific definitions.
 
@@ -75,35 +110,31 @@ The study is the third component of a research program. Paper 1 develops a frame
 
 The central research question is:
 
-> **What does publicly available organizational evidence reveal about the observability, structure, and comparability of group-specific employee flows?**
+\\begin{{quote}}
+What does publicly available organizational evidence reveal about the observability, structure, and comparability of group-specific employee flows?
+\\end{{quote}}
 
 The paper is explicitly exploratory. It does not assume the theoretical propositions of Paper 2, does not convert missing observations into zeros, and does not interpret descriptive associations as causal effects.
 
----
-
-## 2. Conceptual Framework
+\\section{{Conceptual Framework}}
 
 The observational architecture is an organization-group-time observation:
-
-$$
+\\begin{{equation}}
 (i,g,t),
-$$
-
+\\end{{equation}}
 where $i$ denotes an organization, $g$ an employee group, and $t$ a reporting period.
 
 Source-defined employee-flow concepts remain distinct. Hires are inflows; quits are voluntary separations where the source defines them as such; layoffs and discharges remain under the source definition; employee turnover and attrition retain their source-defined meanings; and workforce stocks describe employment levels rather than flows.
 
 The same principle applies to missingness:
-
-$$
+\\begin{{equation}}
 \\text{{not reported}} \\neq 0.
-$$
+\\end{{equation}}
 
 If a source does not report a group-specific firing count, the value remains missing rather than being converted to zero.
 
 The empirical pipeline is:
-
-$$
+\\begin{{equation}}
 \\text{{source discovery}}
 \\rightarrow
 \\text{{acquisition}}
@@ -117,158 +148,141 @@ $$
 \\text{{robustness}}
 \\rightarrow
 \\text{{candidate hypotheses}}.
-$$
+\\end{{equation}}
 
----
+\\section{{Data and Sources}}
 
-## 3. Data and Sources
-
-The current evidence layer contains **{n} observations from {orgs} organizations**. The organization registry currently spans India, the United Kingdom, the United States, Canada, and Australia, but acquired evidence is presently concentrated in India, the United Kingdom, and the United States.
+The current evidence layer contains {n} observations from {orgs} organizations. The organization registry currently spans India, the United Kingdom, the United States, Canada, and Australia, but acquired evidence is presently concentrated in India, the United Kingdom, and the United States.
 
 All acquired organization evidence is currently classified as secondary rather than as a completed primary estimation panel.
 
 The evidence is retained with source identifiers, document titles, reporting periods, official URLs, evidence types, group dimensions, source-defined flow concepts, units, measurement status, and notes.
 
-### Reporting-period coverage
+\\subsection{{Reporting-period coverage}}
 
 {_table(periods, "Reporting period")}
 
 The evidence is therefore not a balanced annual panel.
 
----
+\\section{{Measurement Structure}}
 
-## 4. Measurement Structure
-
-### 4.1 Flow concepts
+\\subsection{{Flow concepts}}
 
 {_table(flows, "Source-defined flow concept")}
 
-There are currently **{flows.get("firings", 0)} directly observed firing observations**.
+There are currently {flows.get("firings", 0)} directly observed firing observations.
 
 This is a measurement-availability result, not evidence that the underlying incidence of firing is zero.
 
-### 4.2 Units
+\\subsection{{Units}}
 
-The evidence contains **{count_units} count observations** and **{noncount} non-count observations**.
+The evidence contains {count_units} count observations and {noncount} non-count observations.
 
 Percentage observations remain percentages. They are not converted into counts without a defensible denominator.
 
-### 4.3 Group dimensions
+\\subsection{{Group dimensions}}
 
 The evidence contains heterogeneous group structures, including gender, age, region, employment group, turnover category, overall observations, and combinations of these dimensions. These structures are not assumed to be directly interchangeable.
 
----
+\\section{{Exploratory Findings}}
 
-## 5. Exploratory Findings
+\\subsection{{Hiring information versus firing information}}
 
-### 5.1 Hiring information versus firing information
-
-The current evidence contains **{flows.get("hires", 0)} hire observations** and **{flows.get("firings", 0)} firing observations**.
+The current evidence contains {flows.get("hires", 0)} hire observations and {flows.get("firings", 0)} firing observations.
 
 The defensible conclusion is about reporting availability: the current evidence provides substantially more observable group-specific hiring information than group-specific firing information.
 
 The data do not establish whether the underlying incidence of firing is low, high, stable, or heterogeneous.
 
-### 5.2 Turnover is observable but conceptually heterogeneous
+\\subsection{{Turnover is observable but conceptually heterogeneous}}
 
-Employee-turnover observations account for **{flows.get("employee_turnover", 0)} observations**. Turnover may be reported as counts or rates and may be voluntary, involuntary, or total depending on the source.
+Employee-turnover observations account for {flows.get("employee_turnover", 0)} observations. Turnover may be reported as counts or rates and may be voluntary, involuntary, or total depending on the source.
 
 Turnover should therefore not automatically be substituted for firing.
 
-### 5.3 Workforce stocks provide contextual information
+\\subsection{{Workforce stocks provide contextual information}}
 
-Employment-end/workforce-stock observations account for **{flows.get("employment_end", 0)} observations**. These describe employment levels or composition and do not directly measure the number of employees entering or leaving during the period.
+Employment-end/workforce-stock observations account for {flows.get("employment_end", 0)} observations. These describe employment levels or composition and do not directly measure the number of employees entering or leaving during the period.
 
-### 5.4 Organizational reporting is heterogeneous
+\\subsection{{Organizational reporting is heterogeneous}}
 
 The evidence differs in flow concept, group dimension, unit, and reporting period. This heterogeneity determines which comparisons are defensible.
 
----
-
-## 6. Measurement and Comparability
+\\section{{Measurement and Comparability}}
 
 Harmonization should be conservative.
 
 A source-defined quantity enters the exploratory dataset under its original conceptual identity. Harmonization standardizes metadata and analytical structure where possible, but does not manufacture conceptual equivalence.
 
 The distinction is:
-
-$$
+\\begin{{equation}}
 \\text{{source quantity}}
 \\rightarrow
 \\text{{validated observation}}
 \\rightarrow
 \\text{{comparable subset}},
-$$
-
+\\end{{equation}}
 rather than:
-
-$$
+\\begin{{equation}}
 \\text{{source quantity}}
 \\rightarrow
 \\text{{assumed common construct}}.
-$$
+\\end{{equation}}
 
 This preserves measurement uncertainty and allows later analysis to identify subsets supporting stronger comparison.
 
----
-
-## 7. Robustness and Sensitivity Framework
+\\section{{Robustness and Sensitivity Framework}}
 
 The evidence supports several sensitivity exercises:
-
-1. **All evidence:** retain source-preserving observations while keeping concepts and units distinct.
-2. **Count-only evidence:** restrict analysis to count observations.
-3. **Group-specific evidence:** exclude observations without a substantive group dimension.
-4. **Flow-only evidence:** exclude workforce-stock observations.
-5. **Organization-level summaries:** summarize coverage by organization rather than treating evidence rows as independent statistical units.
+\\begin{{enumerate}}
+\\item All evidence: retain source-preserving observations while keeping concepts and units distinct.
+\\item Count-only evidence: restrict analysis to count observations.
+\\item Group-specific evidence: exclude observations without a substantive group dimension.
+\\item Flow-only evidence: exclude workforce-stock observations.
+\\item Organization-level summaries: summarize coverage by organization rather than treating evidence rows as independent statistical units.
+\\end{{enumerate}}
 
 These are sensitivity specifications, not competing attempts to obtain a preferred result.
 
----
-
-## 8. Implications for Future Empirical Work
+\\section{{Implications for Future Empirical Work}}
 
 The current evidence does not justify immediately estimating a causal firing-effects model.
 
 The next acquisition phase should target measurement gaps, particularly:
-
-1. Canada and Australia;
-2. manufacturing;
-3. healthcare;
-4. retail;
-5. telecommunications;
-6. energy;
-7. transportation;
-8. consumer goods;
-9. multi-year organizational reporting;
-10. group-specific employer-initiated separation measures.
+\\begin{{enumerate}}
+\\item Canada and Australia;
+\\item manufacturing;
+\\item healthcare;
+\\item retail;
+\\item telecommunications;
+\\item energy;
+\\item transportation;
+\\item consumer goods;
+\\item multi-year organizational reporting;
+\\item group-specific employer-initiated separation measures.
+\\end{{enumerate}}
 
 The approximately 50-organization target remains a coverage objective rather than a quota.
 
----
+\\section{{Candidate Hypotheses for Later Testing}}
 
-## 9. Candidate Hypotheses for Later Testing
+The exploratory evidence motivates, but does not establish, candidate hypotheses.
 
-The exploratory evidence motivates, but does not establish, candidate hypotheses:
-
-### H1: Reporting asymmetry
+\\subsection{{H1: Reporting asymmetry}}
 
 Organizations may be more likely to publicly report group-specific hiring information than group-specific firing information.
 
-### H2: Definition heterogeneity
+\\subsection{{H2: Definition heterogeneity}}
 
 Comparability may decrease as the number of source-defined concepts and group structures increases.
 
-### H3: Longitudinal scarcity
+\\subsection{{H3: Longitudinal scarcity}}
 
 Public organizational reporting may provide substantially less repeated group-specific flow information than would be required for a balanced longitudinal panel.
 
 These hypotheses require later testing.
 
----
-
-## 10. Limitations
+\\section{{Limitations}}
 
 The current sample is small and assembled for coverage and source quality rather than statistical representativeness. Evidence is concentrated in a small number of reporting periods, organizations differ in definitions and group classifications, and the current data do not provide directly observed group-specific firing counts.
 
@@ -276,17 +290,17 @@ The absence of firing observations reflects lack of observed measurement and can
 
 The study is observational and descriptive. It does not establish causal effects.
 
----
-
-## 11. Conclusion
+\\section{{Conclusion}}
 
 The current exploratory evidence demonstrates that group-specific employee-flow information is observable, but unevenly and under heterogeneous definitions.
 
-The evidence layer contains **{n} observations across {orgs} organizations**. Hiring information is substantially represented, employee turnover is also observable, workforce-stock information provides contextual observations, and other separations appear in limited form. Directly observed group-specific firing counts are currently absent.
+The evidence layer contains {n} observations across {orgs} organizations. Hiring information is substantially represented, employee turnover is also observable, workforce-stock information provides contextual observations, and other separations appear in limited form. Directly observed group-specific firing counts are currently absent.
 
 The contribution of this stage is methodological as much as substantive: it establishes a source-preserving empirical architecture in which measurement availability, definition heterogeneity, missingness, and comparability are observable features of the data.
 
 The next step is to expand the evidence strategically, quantify comparability, perform reproducible exploratory analysis, and identify subsets capable of supporting stronger future tests.
+
+\\end{{document}}
 """
 
 
