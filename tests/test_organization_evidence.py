@@ -98,3 +98,17 @@ def test_hsbc_evidence_preserves_source_defined_concepts():
         for row in hsbc
         if row["evidence_type"] in {"employee_turnover_count", "new_hire_count"}
     )
+
+def test_alphabet_evidence_preserves_source_defined_concepts():
+    rows = read_rows()
+    alphabet = [row for row in rows if row["organization_id"] == "USA002"]
+    assert alphabet
+    assert any(
+        row["flow_concept"] == "employment_end"
+        and row["evidence_type"] == "workforce_stock"
+        and row["unit"] == "count"
+        and row["value"] == "190820"
+        for row in alphabet
+    )
+    assert all(row["screening_status"] == "Secondary" for row in alphabet)
+    assert all(row["flow_concept"] != "firings" for row in alphabet)
