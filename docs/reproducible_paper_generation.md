@@ -1,6 +1,6 @@
 # Reproducible Paper Generation
 
-Paper 3 is generated from the source-preserving evidence CSV rather than maintained as a manually edited statistical narrative.
+Paper 3 is generated as LaTeX source from the source-preserving evidence CSV rather than maintained as a manually edited statistical narrative.
 
 From the repository root, run:
 
@@ -14,10 +14,10 @@ The command reads:
 
 and writes:
 
-`outputs/exploratory_paper.md`
+`outputs/exploratory_paper.tex`
 
 The generator computes observation counts, organization coverage, flow-concept counts, unit counts, and reporting-period counts directly from the evidence. It does not infer missing values, convert percentages into counts, or relabel source-defined concepts.
 
-The generated Markdown is an analysis artifact. The checked-in draft in `docs/exploratory_paper_draft.md` remains a readable research draft, while `outputs/exploratory_paper.md` is the reproducible generated version.
+The generated artifact is a complete `article`-class LaTeX document using the `booktabs` package for tables. It can be compiled independently with a standard LaTeX installation.
 
-Tests verify the current evidence totals and the generator's source-preserving behavior.
+The generator is the source of all numerical values in the generated paper. Tests verify the current evidence totals and the source-preserving behavior.
