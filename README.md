@@ -2,7 +2,7 @@
 
 ## Project description
 
-**HRProject is the empirical implementation repository for a three-paper research program on group-specific employee flows.** The project develops a measurement framework for employee inflows and outflows by group, develops theoretical implications of those flows, and then tests the resulting propositions using a heterogeneous panel of organizations.
+**HRProject is the empirical/data-science implementation repository for a three-paper research program on group-specific employee flows.** The project develops a measurement framework for employee inflows and outflows by group, develops theoretical implications of those flows, and then explores the resulting evidence using a heterogeneous panel of organizations.
 
 The empirical objective is deliberately narrower than a generic HR analytics project: determine whether group-specific employee-flow measures are observable and statistically informative across organizations, industries, countries, and time, while preserving the original definitions and limitations of the underlying sources.
 
@@ -10,9 +10,51 @@ The project treats **measurement, theory, and empirical validation as separate s
 
 1. **Paper 1 — Group-Specific Employee Flow Rates:** measurement framework.
 2. **Paper 2 — The Effects of Group-Specific Employee Flows:** theoretical implications.
-3. **Paper 3 — An Empirical Test of Group-Specific Employee Flow Effects:** heterogeneous-panel empirical test.
+3. **Paper 3 — Exploratory Analysis of Group-Specific Employee Flows:** heterogeneous-panel data-science analysis. A later confirmatory/econometric paper may be developed from sufficiently clean subsets of the exploratory dataset.
 
-Paper 3 uses the measure from Paper 1 and tests propositions developed in Paper 2. It does not redefine either paper.
+Paper 3 uses the measurement framework from Paper 1 and the theoretical propositions from Paper 2 as conceptual inputs. It does not assume that those propositions are true, and exploratory findings are not treated as causal evidence.
+
+## Exploratory Data Science Design
+
+The primary Paper 3 workflow is now exploratory rather than confirmatory. The objective is to build and characterize a heterogeneous organizational employee-flow dataset while preserving source definitions, measurement uncertainty, missingness, and provenance.
+
+The Data Science pipeline is:
+
+```text
+source discovery
+      |
+      v
+acquisition and extraction
+      |
+      v
+raw observations + provenance
+      |
+      v
+validation
+      |
+      v
+definition harmonization
+      |
+      v
+exploratory analysis dataset
+      |
+      v
+EDA: distributions, heterogeneity, missingness, temporal patterns
+      |
+      v
+visualization + descriptive statistics
+      |
+      v
+robustness and sensitivity checks
+      |
+      v
+research findings + candidate hypotheses
+      |
+      v
+optional confirmatory/econometric follow-up
+```
+
+The pipeline permits heterogeneous observation types. A source can contribute useful evidence without establishing group-specific firing counts. Workforce stocks, hires, quits, layoffs, turnover, and other source-defined measures remain distinct. The absence of a firing observation is itself recorded as missing evidence rather than converted into zero.
 
 ## Empirical design
 
@@ -51,10 +93,13 @@ definition harmonization
 analysis panel
       |
       v
-estimation
+exploratory analysis
       |
       v
 robustness and sensitivity analysis
+      |
+      v
+optional estimation/confirmatory analysis
 ```
 
 The repository is designed so that raw source-derived observations are preserved and transformations are reproducible. Source verification, data acquisition, and variable validation are separate gates: identifying a credible source does not mean that the required observations have already been acquired.
@@ -108,6 +153,6 @@ For India, Labour Bureau's Quarterly Employment Survey is an establishment-based
 
 ## Current status
 
-Papers 1 and 2 are present in the repository as PDFs. The empirical implementation is being developed on the `empirical-design` branch.
+Papers 1 and 2 are present in the repository as PDFs. The exploratory implementation is being developed through the data-science pipeline. The repository retains the original empirical-design machinery because it may support a later confirmatory study.
 
 The branch currently contains the validation layer, data dictionary, source registry, organization-registry scaffold, acquisition plan, source-acquisition protocol, tests, and analysis-data scaffolding.
