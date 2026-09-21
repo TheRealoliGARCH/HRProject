@@ -2,7 +2,7 @@
 
 ## Scope
 
-This report profiles the **106 evidence observations** currently recorded in `metadata/organization_source_evidence.csv` on `main`.
+This report profiles the **108 evidence observations** currently recorded in `metadata/organization_source_evidence.csv` on `main`.
 
 The evidence covers **7 organizations**:
 
@@ -17,21 +17,33 @@ All seven organizations are currently classified as **Secondary**. The report th
 | Source-defined flow concept | Evidence observations |
 | --- | ---: |
 | hires | 55 |
-| employee_turnover | 46 |
+| employee_turnover | 48 |
 | employment_end | 4 |
 | other_separations | 1 |
 | firings | 0 |
 
-The absence of firing observations is an important measurement result. No firing count has been inferred from turnover, attrition, layoffs, workforce stocks, or other separation measures.
+The absence of firing observations is a measurement result. No firing count has been inferred from turnover, attrition, layoffs, workforce stocks, or other separation measures.
 
 ## Unit coverage
 
 The acquired evidence contains both count and non-count observations.
 
-- Count observations: 95
-- Percentage / percentage-like observations: 11
+- Count observations: 96
+- Percentage observations: 10
+- Percentage-women observations: 2
 
 Percentage observations remain percentages. They are not converted into counts.
+
+## Reporting-period coverage
+
+| Reporting period | Observations |
+| --- | ---: |
+| FY2018-19 | 61 |
+| FY2024 | 31 |
+| FY2024-25 | 15 |
+| FY2025 | 1 |
+
+The current evidence is therefore highly sparse longitudinally. It should not be described as a balanced annual panel.
 
 ## Group-dimension coverage
 
@@ -45,7 +57,7 @@ The evidence includes multiple group structures:
 - overall
 - combined dimensions such as employment group + gender + age and region + age + gender
 
-This is already heterogeneous enough to support exploratory comparisons, but the dimensions are not directly interchangeable. For example, gender-by-region-by-age observations should not be treated as equivalent to a simple gender observation.
+These dimensions are not directly interchangeable.
 
 ## Organization-level coverage
 
@@ -61,8 +73,6 @@ This is already heterogeneous enough to support exploratory comparisons, but the
 
 ## Measurement gaps
 
-The current evidence layer has four immediate gaps.
-
 ### 1. Firing observations
 
 There are currently **zero directly observed group-specific firing observations** in the acquired organization evidence.
@@ -75,15 +85,15 @@ The registry contains Canada and Australia candidates, but the acquired evidence
 
 ### 3. Industry coverage
 
-The current acquired organizations are concentrated in information technology and financial services. Additional acquisition should therefore deliberately expand industry coverage.
+The acquired organizations are concentrated in information technology and financial services. Additional acquisition should deliberately expand industry coverage.
 
 ### 4. Temporal coverage
 
-The evidence is concentrated in FY2018-19 and FY2024-25/FY2025, with limited longitudinal organization-level coverage. A useful next acquisition wave should prioritize organizations with multiple comparable reporting periods.
+The evidence is concentrated in FY2018-19 and FY2024/FY2024-25/FY2025, with little repeated organization-level measurement. A useful next acquisition wave should prioritize organizations with multiple comparable reporting periods.
 
 ## Exploratory interpretation
 
-The data currently support an exploratory study of **heterogeneous employee-flow measurement**, particularly:
+The data currently support an exploratory study of heterogeneous employee-flow measurement, particularly:
 
 1. group-specific hiring patterns;
 2. source-defined turnover patterns;
@@ -92,7 +102,7 @@ The data currently support an exploratory study of **heterogeneous employee-flow
 5. differences in reporting practices;
 6. measurement availability and missingness.
 
-They do **not** yet support a general empirical claim about group-specific firing effects.
+They do not yet support a general empirical claim about group-specific firing effects.
 
 ## Acquisition rule for the next wave
 
