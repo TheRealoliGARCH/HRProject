@@ -1,8 +1,8 @@
 # HRProject — Project Description
 
-HRProject is the empirical implementation repository for a three-paper research program on group-specific employee flows.
+HRProject is the empirical/data-science implementation repository for a three-paper research program on group-specific employee flows.
 
-The project asks whether employee inflows and outflows can be measured by employee group in a sufficiently consistent way to permit cross-organization empirical analysis. It connects a measurement paper, a theoretical paper, and an empirical-testing paper without collapsing their distinct roles.
+The project asks whether employee inflows and outflows can be measured by employee group in a sufficiently consistent way to permit cross-organization empirical analysis. It connects a measurement paper, a theoretical paper, and an exploratory data-science paper without collapsing their distinct roles. A later confirmatory/econometric study may be developed from sufficiently clean subsets of the exploratory evidence.
 
 ## Research sequence
 
@@ -14,13 +14,13 @@ Defines the measurement framework for group-specific employee flows.
 
 Develops the theoretical implications of those flows.
 
-**Paper 3 — An Empirical Test of Group-Specific Employee Flow Effects**
+**Paper 3 — Exploratory Analysis of Group-Specific Employee Flows**
 
-Implements the empirical test using a heterogeneous organization-group-time panel.
+Builds and characterizes a heterogeneous organization-group-time evidence layer, preserving source definitions, missingness, measurement uncertainty, and provenance.
 
 ## Empirical principle
 
-The repository does not assume that the propositions of Paper 2 are empirically true. It builds the data and estimation system needed to test them.
+The repository does not assume that the propositions of Paper 2 are empirically true. Paper 3 first builds and explores the evidence needed to determine what can be measured and compared; any later confirmatory/econometric analysis is a separate stage.
 
 The empirical design therefore emphasizes:
 
@@ -40,7 +40,7 @@ The principal observation is $(i,g,t)$: organization $i$, employee group $g$, an
 
 The project uses a layered data architecture:
 
-raw source data → validation → harmonization → analysis → estimation → robustness.
+raw source data → validation → harmonization → exploratory analysis → robustness and sensitivity → candidate hypotheses → optional confirmatory/econometric follow-up.
 
 Official statistical sources are used as benchmarks and, where their granularity permits, as potential components of the empirical panel. Organization-level disclosures are evaluated separately and are not treated as interchangeable with aggregate labor-market statistics.
 
